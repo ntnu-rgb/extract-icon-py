@@ -21,14 +21,14 @@ class PyTest(TestCommand):
 		sys.exit(errno)
 		
 setup(
-	name = "pefile_extract_icon",
+	name = "extract_icon",
 	version = "0.0.2",
 	author = "Fadhil Mandaga and Sturla Bae",
 	author_email = "firodj@gmail.com",
 	description = ("Extract icon from PE executables using pefile"),    
 	keywords = "pefile, pe, icon, extraction",
 	url="https://github.com/ntnu-rgb/pefile-extract-icon/",
-	packages=['pefile_extract_icon'],
+	packages=['extract_icon'],
 	install_requires=readfile('requirements.txt'),	
 	tests_require=['pytest'],
 	cmdclass={'test': PyTest},
