@@ -25,21 +25,21 @@ class ExtractIcon(object):
     def find_resource_base(self, type):
         rt_base_idx = None
         try:
-            rt_base_idx = [entry.id for 	
+            rt_base_idx = [entry.id for
                 entry in self.pe.DIRECTORY_ENTRY_RESOURCE.entries].index(
                     pefile.RESOURCE_TYPE[type]
-            )		
+            )
         except Exception:
             pass
 
         if rt_base_idx is not None:
             return self.pe.DIRECTORY_ENTRY_RESOURCE.entries[rt_base_idx]
-        
+
         return None
 
     def find_resource(self, type, res_index):
         rt_base_dir = self.find_resource_base(type)
-        
+
         if res_index < 0:
             try:
                 idx = [entry.id for entry in rt_base_dir.directory.entries].index(-res_index)
@@ -53,7 +53,7 @@ class ExtractIcon(object):
         test_res_dir = rt_base_dir.directory.entries[idx]
         res_dir = test_res_dir
         if test_res_dir.struct.DataIsDirectory:
-            # another Directory 
+            # another Directory
             # probably language take the first one
             try:
                 res_dir = test_res_dir.directory.entries[0]
@@ -75,7 +75,7 @@ class ExtractIcon(object):
 
             if not grp_icon_dir_entry:
                 continue
-        
+
             data_rva = grp_icon_dir_entry.data.struct.OffsetToData
             size = grp_icon_dir_entry.data.struct.Size
             data = self.pe.get_memory_mapped_image()[data_rva:data_rva+size]
@@ -89,7 +89,7 @@ class ExtractIcon(object):
             if grp_icon_dir.Reserved != 0 or grp_icon_dir.Type != self.RES_ICON:
                 continue
             offset = grp_icon_dir.sizeof()
-    
+
             entries = list()
             for idx in range(0, grp_icon_dir.Count):
                 grp_icon = pefile.Structure(self.GRPICONDIRENTRY_format, file_offset=file_offset+offset)
@@ -99,7 +99,7 @@ class ExtractIcon(object):
                     return None
                 offset += grp_icon.sizeof()
                 entries.append(grp_icon)
-                
+
             groups.append(entries)
         return groups
 
@@ -137,7 +137,7 @@ class ExtractIcon(object):
     def get_raw_windows_preferred_icon(self):
         """
         Retrieve the (raw) icon that Windows normally would display.
-        Returns the icon if a suitable icon was found. 
+        Returns the icon if a suitable icon was found.
         If no suitable icon was found, None is returned.
         """
         group, icon = self.get_windows_preferred_icon()
@@ -153,8 +153,8 @@ class ExtractIcon(object):
 
         data_rva = icon_entry.data.struct.OffsetToData
         size = icon_entry.data.struct.Size
-        data = self.pe.get_memory_mapped_image()[data_rva:data_rva+size]        
-        
+        data = self.pe.get_memory_mapped_image()[data_rva:data_rva+size]
+
         return data
 
     def export_raw(self, entries, index = None):
@@ -169,7 +169,7 @@ class ExtractIcon(object):
             if data_offset is None:
                 data_offset = len(ico) + ((grp_icon.sizeof()+2) * len(entries))
 
-            nfo = grp_icon.__pack__()[:-2] + struct.pack('<L', data_offset)            
+            nfo = grp_icon.__pack__()[:-2] + struct.pack('<L', data_offset)
             info.append( nfo )
 
             raw_data = self.get_icon(grp_icon.ID)
@@ -189,7 +189,6 @@ class ExtractIcon(object):
         if data[0:4] == '\x89PNG':
             header = ''
         else:
-            dib_size = struct.unpack('<L', data[0:4])[0]            
+            dib_size = struct.unpack('<L', data[0:4])[0]
             header = 'BM' + struct.pack('<LLL', len(data) + 14, 0, 14 + dib_size)
         return header
-    
