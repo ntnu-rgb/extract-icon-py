@@ -1,22 +1,38 @@
-extract-icon-py
-===============
+# pefile-extract-icon #
+This is a fork of [extract-icon-py](https://github.com/firodj/extract-icon-py/) that includes various improvements such as supporting Python 3 and easier extraction of icons that a Windows system would display.
 
-Extract Icon from PE Executable with Python.
+## Installing ##
+* ``git clone https://github.com/ntnu-rgb/pefile-extract-icon.git``
+* ``cd pefile-extract-icon``
+* ``pip3 install -r requirements.txt``
+* ``python3 setup.py install``
 
-Requirements
-------------
+Installing might require higher privileges (run with sudo or as Administrator)
 
+## Usage ##
 ```
-$ pip install -r requirements.txt
+import extract_icon
+
+icon_extractor = extract_icon.ExtractIcon('path/to/pe_executable.exe')
+raw = icon_extractor.get_raw_windows_preferred_icon()
+```
+or - if a pefile object already is instantiated in your script:
+```
+import pefile
+
+import extract_icon
+
+pe = pefile.PE('path/to/pe_executable.exe')
+icon_extractor = extract_icon.ExtractIcon(pefile_pe=pe)
+raw = icon_extractor.get_raw_windows_preferred_icon()
 ```
 
-Testing
--------
+## Uninstalling ##
+``sudo pip3 uninstall extract_icon``
 
-```
-$ py.test
-```
-
-References
-----------
-* [CodeProject - Get icons from Exe or DLL the PE way](http://www.codeproject.com/Articles/9303/Get-icons-from-Exe-or-DLL-the-PE-way)
+## Changes from the original extract-icon-py ##
+* Updated code for Python 3
+* Replaced tabs with spaces
+* Added the option of providing a pefile object instead of path to a pe executable
+* Added resillience with exception handling for exceptions that occur when parsing certain files
+* Added the functions _get_windows_preferred_icon_ and _get_raw_windows_preferred_icon_
