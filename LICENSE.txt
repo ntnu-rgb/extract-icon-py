@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Original Copyright (c) 2015-2016 Fadhil Mandaga
+Original work Copyright (c) 2015-2016 Fadhil Mandaga
 Original work: https://github.com/firodj/extract-icon-py/tree/64e7b0bf3d2dfd6c673ca813117d8f80fe87a3ed
 
 Modified work Copyright (c) 2020 Sturla Bae
