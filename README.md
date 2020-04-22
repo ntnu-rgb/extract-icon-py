@@ -7,8 +7,6 @@ This is a fork of [extract-icon-py](https://github.com/firodj/extract-icon-py/) 
 * ``pip3 install -r requirements.txt``
 * ``python3 setup.py install``
 
-Installing might require higher privileges (run with sudo or as Administrator)
-
 ## Usage ##
 ```
 import extract_icon
@@ -28,7 +26,7 @@ raw = icon_extractor.get_raw_windows_preferred_icon()
 ```
 
 ## Uninstalling ##
-``sudo pip3 uninstall extract_icon``
+``pip3 uninstall extract_icon``
 
 ## Changes ##
 The following changes have been made from the original [project](https://github.com/firodj/extract-icon-py/tree/64e7b0bf3d2dfd6c673ca813117d8f80fe87a3ed):
