@@ -1,11 +1,13 @@
 # pefile-extract-icon #
-This is a fork of [extract-icon-py](https://github.com/firodj/extract-icon-py/) that includes various improvements such as supporting Python 3 and easier extraction of icons that a Windows system would normally display.
+This is a fork of [extract-icon-py](https://github.com/firodj/extract-icon-py/) that includes various improvements such migrating to Python 3, easier extraction of icons that a Windows system would normally display and handling of exceptions that occur when parsing certain obfuscated PE files.
 
 ## Installing ##
 * ``git clone https://github.com/ntnu-rgb/pefile-extract-icon.git``
 * ``cd pefile-extract-icon``
-* ``pip3 install -r requirements.txt``
+* ``pip3 install --user -r requirements.txt``
 * ``python3 setup.py install``
+
+On some systems ``pip3`` have to be replaced with ``pip`` or ``python3 -m pip``.
 
 ## Usage ##
 ```
@@ -30,8 +32,8 @@ raw = icon_extractor.get_raw_windows_preferred_icon()
 
 ## Changes ##
 The following changes have been made from the original [project](https://github.com/firodj/extract-icon-py/tree/64e7b0bf3d2dfd6c673ca813117d8f80fe87a3ed):
-* Updated code to Python 3
+* Migrated Python 3
 * Replaced tabs with spaces
-* Added the option of providing a pefile object instead of path to a pe executable
+* Added the option of providing a pefile object instead of path to a pe executable (speeds up analysis if file already has been parsed by pefile)
 * Added resillience with exception handling for exceptions that occur when parsing certain files
 * Added the functions ``get_windows_preferred_icon`` and ``get_raw_windows_preferred_icon`` in ``extract_icon/__init__.py``
