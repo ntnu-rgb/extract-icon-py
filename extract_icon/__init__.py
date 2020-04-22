@@ -46,7 +46,10 @@ class ExtractIcon(object):
             except:
                 return None
         else:
-            idx = res_index if res_index < len(rt_base_dir.directory.entries) else None
+            try:
+                idx = res_index if res_index < len(rt_base_dir.directory.entries) else None
+            except AttributeError:
+                idx = None
 
         if idx is None: return None
 
