@@ -27,7 +27,7 @@ setup(
 	author_email = "firodj@gmail.com",
 	description = ("Extract icon from PE executables using pefile"),    
 	keywords = "pefile, pe, icon, extraction",
-	url="https://github.com/ntnu-rgb/pefile-extract-icon/",
+	url="https://github.com/57ur14/pefile-extract-icon/",
 	packages=['extract_icon'],
 	install_requires=readfile('requirements.txt'),	
 	tests_require=['pytest'],
