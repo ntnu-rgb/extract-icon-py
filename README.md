@@ -1,5 +1,5 @@
 # pefile-extract-icon #
-This is a fork of [extract-icon-py](https://github.com/firodj/extract-icon-py/) that includes various improvements such migrating to Python 3, easier extraction of icons that a Windows system would normally display and handling of exceptions that occur when parsing certain obfuscated PE files.
+This is a fork of [extract-icon-py](https://github.com/firodj/extract-icon-py/) that includes various improvements such as migrating to Python 3, easier extraction of icons that a Windows system would normally display and handling of exceptions that occur when parsing certain obfuscated PE files.
 
 ## Installing ##
 * ``git clone https://github.com/57ur14/pefile-extract-icon.git``
