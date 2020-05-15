@@ -5,7 +5,7 @@ This is a fork of [extract-icon-py](https://github.com/firodj/extract-icon-py/) 
 * ``git clone https://github.com/57ur14/pefile-extract-icon.git``
 * ``cd pefile-extract-icon``
 * ``pip3 install --user -r requirements.txt``
-* ``python3 setup.py install``
+* ``python3 setup.py install --user``
 
 On some systems ``pip3`` have to be replaced with ``pip`` or ``python3 -m pip``.
 
