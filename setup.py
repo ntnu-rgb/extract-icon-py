@@ -22,7 +22,7 @@ class PyTest(TestCommand):
 		
 setup(
 	name = "extract_icon",
-	version = "0.0.2",
+	version = "0.0.3",
 	author = "Fadhil Mandaga and Sturla Bae",
 	author_email = "firodj@gmail.com",
 	description = ("Extract icon from PE executables using pefile"),    
