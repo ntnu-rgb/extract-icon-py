@@ -1,7 +1,6 @@
 The MIT License (MIT)
 
-Original work (https://github.com/firodj/extract-icon-py/tree/64e7b0bf3d2dfd6c673ca813117d8f80fe87a3ed) Copyright (c) 2015-2016 Fadhil Mandaga
-Modified work (https://github.com/ntnu-rgb/pefile-extract-icon/blob/master/README.md#changes) Copyright (c) 2020 Sturla Bae
+Original work (https://github.com/firodj/extract-icon-py/tree/64e7b0bf3d2dfd6c673ca813117d8f80fe87a3ed) Copyright (c) 2015-2016 Fadhil Mandaga, Modified work (https://github.com/ntnu-rgb/pefile-extract-icon/blob/master/README.md#changes) Copyright (c) 2020 Sturla Bae
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
